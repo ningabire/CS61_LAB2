@@ -50,8 +50,6 @@ CREATE TABLE IF NOT EXISTS `akelbessa_db`.`Issue` (
   `status` INT NULL,
   `npages` INT NULL,
   `date` DATETIME NULL,
-  `Manuscript_manu_id` INT NULL,
-  `manu_startpage` INT NULL,
   PRIMARY KEY (`issue_id`))
 ENGINE = InnoDB;
 
@@ -64,11 +62,11 @@ DROP TABLE IF EXISTS `akelbessa_db`.`Manuscript` ;
 CREATE TABLE IF NOT EXISTS `akelbessa_db`.`Manuscript` (
   `manu_id` INT NOT NULL AUTO_INCREMENT,
   `manu_title` VARCHAR(45) NULL,
-  `manu_date` VARCHAR(45) NULL,
-  `manu_pagenb` VARCHAR(45) NULL,
+  `manu_date` DATETIME NULL,
+  `manu_pagenb` INT NULL,
   `Editor_editor_id` INT NOT NULL,
   `Icode_Icode_num` INT NOT NULL,
-  `Issue_issue_id` INT NOT NULL,
+  `Issue_issue_id` INT NULL DEFAULT NULL,
   `manu_status` INT NULL,
   PRIMARY KEY (`manu_id`),
   INDEX `fk_Manuscript_Editor_idx` (`Editor_editor_id` ASC),
